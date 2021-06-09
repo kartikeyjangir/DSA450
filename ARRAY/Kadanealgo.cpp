@@ -20,17 +20,32 @@ int main()
     int n = sizeof(arr) / sizeof(int);
 
     //Brute force approach T.C is O(n^2)
-    int ans = INT_MIN;
-    for (int i = 0; i < n; i++)
-    {
-        int sum = 0;
-        for (int j = i; j < n; j++)
-        {
-            sum += arr[j];
-            ans = max(sum, ans);
-        }
+    // int ans = INT_MIN;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int sum = 0;
+    //     for (int j = i; j < n; j++)
+    //     {
+    //         sum += arr[j];
+    //         ans = max(sum, ans);
+    //     }
+    // }
+
+    // cout << ans << endl;
+
+
+    //T.C O(n)
+    int maxsum=INT_MIN;
+    int currsum=0;
+
+    for(int i=0;i<n;i++){
+        currsum+=arr[i];
+        if(currsum>maxsum)
+        maxsum=currsum;
+        if(currsum<0)
+        currsum=0;
     }
 
-    cout << ans << endl;
+cout<<maxsum<<endl;
     return 0;
 }
