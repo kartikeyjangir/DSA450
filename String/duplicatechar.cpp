@@ -35,14 +35,16 @@ string s;cin>>s;
 //Method 2. using map as no wastage of memory 
 unordered_map<char,int> m;
 for(int i=0;i<s.size();i++){
-    if()
-    m.insert({s[i],1})
+    auto it=find(s.begin(),s.end(),s[i]);
+    if(it!=s.end())
+    m[s[i]]++;
+    else
+    m.insert({s[i],1});
 }
 
-for(int i=0;i<256;i++){
-    if(count[i]>1)
-    cout<<(char)i<<" ";
-}
+for(auto it=m.begin();it!=m.end();it++)
+if((it->second)>1)
+cout<<it->first<<" ";
 cout<<endl;
 
 return 0;
